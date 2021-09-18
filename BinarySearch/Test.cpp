@@ -112,6 +112,7 @@ int lowerBound(vector<int>& nums,int n,int x) {
 	}
 	return ans;
 }
+
 int countOccurences(vector<int>& nums,int n,int x) {
 
 	int firstIdx = firstOccurence(nums,n,x);
@@ -142,6 +143,7 @@ ll sqrtN(ll n) {
 	}
 	return ans;
 }
+
 int minInRotated(vector<int>& nums,int n) {
 
 	int low = 0,high = n-1;
@@ -159,6 +161,7 @@ int minInRotated(vector<int>& nums,int n) {
 	}
 	return nums[low];
 }
+
 int searchInSortedRotated(vector<int>& nums,int n,int x) {
 
 	int low = 0,high = n-1;
@@ -211,6 +214,52 @@ int findPeakElement(vector<int>& nums,int n){
 	}
 	return low;
 }
+
+bool searchInSortdRotated2(vector<int>& nums,int n,int k) {
+
+    int low = 0,high = n-1;
+
+    while(low <= high) {
+
+        int mid = low + (high-low)/2;
+
+        if(nums[mid] == k) {
+            return true;
+        }
+        // special condition....
+        if(nums[low] == nums[high] and nums[low] == nums[mid]) {
+            high--;
+            low++;
+        }
+        
+        else if(nums[low] <= nums[mid]) {
+
+            if(nums[low] <= k and nums[mid] > k) {
+                high = mid-1;
+            }
+            else{
+                low = mid+1;
+            }
+        }
+
+        else if(nums[mid] <= nums[high]) {
+
+            if(nums[mid] < k and nums[high] >= k) {
+                low = mid+1;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+    }
+    return false;
+ }
+
+ // int findMinInsortedRotatedArray(vector<int> nums,int n,int k) {
+
+
+ // }
+
 int main(int argc, char const *argv[])
 {
 
@@ -234,7 +283,9 @@ int main(int argc, char const *argv[])
 	// log(lowerBound(nums,n,k));
 	// log(countOccurences(nums,n,k));
 	// log(sqrtN(50));
-	// log(minInRotated(nums,n));
+	log(minInRotated(nums,n));
 	// log(searchInSortedRotated(nums,n,k));
-	log(findPeakElement(nums,n));
+	// log(findPeakElement(nums,n));
+	// log(searchInSortdRotated2(nums,n,k));
+	// log(findMinInsortedRotatedArray(nums,n,k));
 }

@@ -18,9 +18,10 @@ string predictWinner(ll n) {
 		}
 		else{
 			ll curr = 2;
+			bool flag = false;
 			while(i >= curr) {
-				if(n%curr == 0 and dp[i/curr] == false) {
-					dp[i] = true;
+				if(n%curr == 0 ) {
+					dp[i] = !dp[i/curr];
 					break;
 				}
 				else{

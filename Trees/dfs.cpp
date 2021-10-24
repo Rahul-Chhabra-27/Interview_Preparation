@@ -75,5 +75,5 @@ int main(int argc, char const *argv[])
 	cout <<"\n";
 	postorder(root);
 	cout <<"\n";
-	cout << (int)log2(100) <<" ";
+	
 }

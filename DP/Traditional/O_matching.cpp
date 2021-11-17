@@ -25,7 +25,7 @@ ll countWays(int mask,int n) {
 	if(mask == ((1<<n)-1)) {
 		return 1;
 	}
-	// look up step
+	// look up step........
 	if(dp[mask] != -1) return dp[mask];
 	ll count = 0;
 

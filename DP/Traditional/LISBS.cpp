@@ -10,7 +10,7 @@ int ceilValue(std::vector<int>&dp,int x) {
 	while(low <= high) {
 		int mid = low + (high-low)/2;
 
-		if(dp[mid] <= x) {
+		if(dp[mid] < x) {
 			low =  mid+1;
 		}
 		else {
